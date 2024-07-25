@@ -1,0 +1,140 @@
+﻿@model IEnumerable<Client.Interface.Models.ClientClass>
+
+@{
+    ViewData["Title"] = "Clients";
+}
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+               
+            font-family: Arial, sans-serif;
+            font-size:10;
+            margin: 0px;
+        }
+
+        
+
+        h1 {
+            color: darkblue;
+        }
+
+        table {
+            
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .tableau{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+       
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+            
+        }
+    </style>
+</head>
+
+<h1> Clients List</h1>
+<div class="tableau">
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.PostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrationDate)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model)
+        {
+            <tr>
+                <td>
+                    @client.Id
+                </td>
+                <td>
+                    @client.FirstName
+                </td>
+                <td>
+                    @client.LastName
+                </td>
+                <td>
+                    @client.Email
+                </td>
+                <td>
+                    @client.PhoneNumber
+                </td>
+                <td>
+                    @client.Address
+                </td>
+                <td>
+                    @client.City
+                </td>
+              
+                <td>
+                    @client.PostalCode
+                </td>
+                <td>
+                    @client.Country
+                </td>
+                <td>
+                    @client.DateOfBirth.ToString("yyyy-MM-dd")
+                </td>
+                <td>
+                    @client.RegistrationDate.ToString("yyyy-MM-dd")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+    </div>
+
