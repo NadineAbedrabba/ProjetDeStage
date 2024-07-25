@@ -1,0 +1,56 @@
+﻿@using System.Linq;
+@using Newtonsoft.Json
+@model IEnumerable<Client.Interface.Models.ClientClass>
+@{
+    ViewData["Title"] = "Delete a Client";
+}
+
+
+<h1 style="color:midnightblue";>@ViewData["Title"]</h1>
+
+<form id="deleteForm" method="post" asp-action="DeleteClient">
+    <div class="form-group">
+        <label for="deleteQuery">Please enter the client ID:</label>
+        <input type="text" id="deleteQuery" name="deleteQuery" class="form-control" placeholder="Enter the ID of the client to delete." />
+    </div>
+    <br />
+    <button type="button" class="btn btn-danger" onclick="searchClient()">Delete</button>
+</form>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+ 
+</table>
+
+@section Scripts {
+    <script type="text/javascript">
+        // Convert the model to JSON and store it in a global variable
+        var clients = @Html.Raw(JsonConvert.SerializeObject(Model));
+
+        function confirmDelete(clientId, firstName, lastName) {
+            const confirmation = confirm(`Are you sure you want to delete the client ${firstName} ${lastName}?`);
+            if (confirmation) {
+                document.getElementById('deleteQuery').value = clientId;
+                document.getElementById('deleteForm').submit();
+            }
+        }
+
+        function searchClient() {
+            const clientId = document.getElementById('deleteQuery').value;
+            const client = clients.find(c => c.Id.toString() === clientId);
+
+            if (client) {
+                confirmDelete(client.Id, client.FirstName, client.LastName);
+            } else {
+                alert('Client not found.');
+            }
+        }
+    </script>
+}

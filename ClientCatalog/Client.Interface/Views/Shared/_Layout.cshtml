@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+@RenderSection("Scripts", required: false)
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Liste des Clients</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Client.Interface.styles.css" asp-append-version="true" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: aliceblue;
+            color: white;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000;
+        }
+
+            .sidebar a {
+                padding: 15px 25px;
+                text-decoration: none;
+                font-size: 18px;
+                color: black;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidebar a:hover {
+                    background-color: #0056b3;
+                }
+
+            .sidebar .closebtn {
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 20px;
+                cursor: pointer;
+            }
+
+        .main-content {
+            margin-left: 0;
+            padding: 20px;
+            transition: margin-left 0.5s;
+        }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 2000;
+        }
+
+            .openbtn:hover {
+                color: #007bff;
+            }
+
+        .footer {
+           margin-left: 0;
+        }
+        h1{
+            display:flex;
+            align-content:center;
+            justify-content:center;
+            margin:15px;
+            font-family:Britannic;
+        }
+    </style>
+</head>
+<body>
+    <div id="mySidebar" class="sidebar">
+        <span class="closebtn" onclick="closeNav()">&times;</span>
+        <a href="https://www.stb.com.tn/fr/" target="_blank">
+            <img src="/images/logoSTB.png" alt="Logo de la banque" style="width: 100px; margin: 10px auto; display: block;" />
+        </a>
+        <a href="javascript:void(0)" onclick="navigateTo('Index')">Home</a>
+        <a href="javascript:void(0)" onclick="navigateTo('Search')">Search</a>
+        <a href="javascript:void(0)" onclick="navigateTo('Create')">Create</a>
+        <a href="javascript:void(0)" onclick="navigateTo('Update')">Update</a>
+        <a href="javascript:void(0)" onclick="navigateTo('Delete')">Delete</a>
+        <a href="javascript:void(0)" onclick="navigateTo('Privacy')">Privacy</a>
+    </div>
+
+    <div id="main">
+        <span class="openbtn" onclick="openNav()">&#9776;</span>
+        <div class="main-content">
+            @RenderBody()
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - STB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+
+        function navigateTo(action) {
+            let baseUrl = '';
+
+            // Vérifier si l'action appartient à Home ou ClientCRUD
+            if (['Index', 'Privacy'].includes(action)) {
+                baseUrl = '/Home/';
+            } else if (['Search', 'Create', 'Update', 'Delete'].includes(action)) {
+                baseUrl = '/ClientCRUD/';
+            } else {
+                console.error('Unknown action: ' + action);
+                return;
+            }
+
+            // Rediriger vers l'URL construite et fermer la barre latérale
+            window.location.href = baseUrl + action;
+            closeNav();
+        }
+    </script>
+</body>
+</html>
