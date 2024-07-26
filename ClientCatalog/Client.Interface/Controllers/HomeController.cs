@@ -3,22 +3,21 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Net.Http;
 using Newtonsoft.Json;
-using Client.Interface.Data;
 
 
 namespace Client.Interface.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly ILogger<HomeController> _logger;
-       // private readonly HttpClient _httpClient;
+        private readonly ILogger<HomeController> _logger;
+        private readonly HttpClient _httpClient;
 
-        //public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientfactory)
+        public HomeController(ILogger<HomeController> logger, IHttpClientFactory httpClientfactory)
         
-       // {
-           // _logger = logger;
-           // _httpClient = httpClientfactory.CreateClient("ClientAPIClient");
-        // }
+        {
+            _logger = logger;
+            _httpClient = httpClientfactory.CreateClient("ClientAPIClient");
+         }
 
         public async Task<IActionResult> Index()
         {
@@ -28,9 +27,23 @@ namespace Client.Interface.Controllers
             //var clientList = JsonConvert.DeserializeObject<IEnumerable<ClientClass>>(content);
 
             // return View(clientList);
-            var clients =  ClientContext.clients;
-            return View(clients);
-        }
+
+            //var clients =  ClientContext.clients;
+            //return View(clients);
+            try
+            {
+                var response = await _httpClient.GetAsync("/api/client");
+                response.EnsureSuccessStatusCode();
+
+                var content = await response.Content.ReadAsStringAsync();
+                var clientList = JsonConvert.DeserializeObject<IEnumerable<ClientClass>>(content);
+
+                return View(clientList);
+            }
+            catch (HttpRequestException ex) { 
+                Console.WriteLine($"Request error http makhdemsh: {ex.Message}");
+            return StatusCode(500, "Internal server error");
+            } }
     
 
         public IActionResult Privacy()

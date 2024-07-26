@@ -5,7 +5,11 @@ C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Client.API.runtimeconfig.json
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Client.API.dll
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Client.API.pdb
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -16,6 +20,7 @@ C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\obj\Debug\net
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\obj\Debug\net8.0\Client.API.csproj.CoreCompileInputs.cache
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\obj\Debug\net8.0\Client.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\obj\Debug\net8.0\Client.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\obj\Debug\net8.0\Client.API.sourcelink.json
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\obj\Debug\net8.0\staticwebassets\msbuild.Client.API.Microsoft.AspNetCore.StaticWebAssets.props
@@ -30,7 +35,3 @@ C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\obj\Debug\net
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\obj\Debug\net8.0\Client.API.pdb
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\obj\Debug\net8.0\Client.API.genruntimeconfig.cache
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\obj\Debug\net8.0\ref\Client.API.dll
-C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
-C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.API\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll

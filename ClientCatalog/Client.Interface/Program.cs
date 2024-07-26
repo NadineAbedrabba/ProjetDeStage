@@ -1,11 +1,14 @@
+using System.Net.Http.Headers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient("ClientAPIClient", client =>
 {
-    client.BaseAddress = new Uri(builder.Configuration["ClientAPIUrl"]);
+    client.BaseAddress = new Uri(builder.Configuration["ClientAPIUrl"]) ?? throw new InvalidOperationException("ClientAPIUrl configuration is missing.");
 });
+
 
 
 var app = builder.Build();
@@ -19,10 +22,6 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseHttpsRedirection();
-
-
-
-
 app.UseAuthorization();
 
 app.MapControllerRoute(

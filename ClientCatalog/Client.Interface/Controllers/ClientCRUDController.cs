@@ -1,59 +1,68 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
 using Client.Interface.Models;
+using Microsoft.AspNetCore.JsonPatch;
 
-namespace Client.Interface.Controllers
+public class ClientCRUDController : Controller
 {
-    public class ClientCRUDController : Controller
+    private readonly HttpClient _httpClient;
+
+    public ClientCRUDController(IHttpClientFactory httpClientFactory)
     {
-        // GET: ClientCRUD/Search
-        public IActionResult Search()
-        {
-            // Logique pour afficher les clients ou les résultats de recherche
-            return View();
-        }
+        _httpClient = httpClientFactory.CreateClient("ClientAPIClient");
+    }
 
-        // GET: ClientCRUD/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+    public async Task<IActionResult> Create()
+    {
+        return View();
+    }
 
-        // POST: ClientCRUD/Create
-        [HttpPost]
-        public IActionResult Create(ClientClass client)
-        {
-            // Logique pour créer un nouveau client
-            return RedirectToAction("Search");
-        }
+    [HttpPost]
+    public async Task<IActionResult> Create(ClientClass client)
+    {
+        var response = await _httpClient.PostAsJsonAsync("/api/client", client);
+        response.EnsureSuccessStatusCode();
 
-        // GET: ClientCRUD/Update/{id}
-        public IActionResult Update(int id)
-        {
-            // Logique pour afficher le client à mettre à jour
-            return View();
-        }
+        return RedirectToAction("Index");
+    }
 
-        // POST: ClientCRUD/Update
-        [HttpPost]
-        public IActionResult Update(ClientClass client)
-        {
-            // Logique pour mettre à jour un client
-            return RedirectToAction("Search");
-        }
+    public async Task<IActionResult> Delete()
+    {
+        return View();
+    }
 
-        // GET: ClientCRUD/Delete/{id}
-        public IActionResult Delete(int id)
-        {
-            // Logique pour afficher les détails du client à supprimer
-            return View();
-        }
+    [HttpPost]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var response = await _httpClient.DeleteAsync($"/api/client/{id}");
+        response.EnsureSuccessStatusCode();
 
-        // POST: ClientCRUD/Delete
-        [HttpPost]
-        public IActionResult Delete(ClientClass client)
-        {
-            // Logique pour supprimer un client
-            return RedirectToAction("Search");
-        }
+        return RedirectToAction("Index");
+    }
+
+    public async Task<IActionResult> Update()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Update(int id, [FromBody] JsonPatchDocument<ClientClass> patchDoc)
+    {
+        var response = await _httpClient.PatchAsync($"/api/client/{id}", JsonContent.Create(patchDoc));
+        response.EnsureSuccessStatusCode();
+
+        return RedirectToAction("Index");
+    }
+
+    public async Task<IActionResult> Search(string query)
+    {
+        var response = await _httpClient.GetAsync($"/api/client?search={query}");
+        var content = await response.Content.ReadAsStringAsync();
+        var clientList = JsonConvert.DeserializeObject<IEnumerable<ClientClass>>(content);
+
+        return View(clientList);
     }
 }

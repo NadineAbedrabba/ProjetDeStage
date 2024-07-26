@@ -1,11 +1,3 @@
-C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.csproj.AssemblyReference.cache
-C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.AssemblyInfoInputs.cache
-C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.AssemblyInfo.cs
-C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.csproj.CoreCompileInputs.cache
-C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.RazorAssemblyInfo.cache
-C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.RazorAssemblyInfo.cs
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\bin\Debug\net8.0\appsettings.json
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\bin\Debug\net8.0\Client.Interface.staticwebassets.runtime.json
@@ -15,6 +7,15 @@ C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\bin\Deb
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\bin\Debug\net8.0\Client.Interface.dll
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\bin\Debug\net8.0\Client.Interface.pdb
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.csproj.AssemblyReference.cache
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.AssemblyInfoInputs.cache
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.AssemblyInfo.cs
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.RazorAssemblyInfo.cache
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.RazorAssemblyInfo.cs
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.sourcelink.json
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\staticwebassets\msbuild.Client.Interface.Microsoft.AspNetCore.StaticWebAssets.props
@@ -31,4 +32,4 @@ C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Deb
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.pdb
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.genruntimeconfig.cache
 C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\ref\Client.Interface.dll
-C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\obj\Debug\net8.0\Client.Interface.sourcelink.json
+C:\Users\lenovo\Desktop\STB\ProjetDeStage\ClientCatalog\Client.Interface\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll

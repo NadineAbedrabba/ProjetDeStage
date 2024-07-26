@@ -3,9 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Interface", "Client.Interface\Client.Interface.csproj", "{61F96102-9D23-4A84-9703-4FE35EB182CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.Interface", "Client.Interface\Client.Interface.csproj", "{61F96102-9D23-4A84-9703-4FE35EB182CD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E2895E73-6437-4CB2-B61D-F8AE73DC9E22} = {E2895E73-6437-4CB2-B61D-F8AE73DC9E22}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.API", "Client.API\Client.API.csproj", "{E2895E73-6437-4CB2-B61D-F8AE73DC9E22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.API", "Client.API\Client.API.csproj", "{E2895E73-6437-4CB2-B61D-F8AE73DC9E22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
