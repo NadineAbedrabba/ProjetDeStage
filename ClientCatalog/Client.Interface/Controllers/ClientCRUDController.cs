@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Client.Interface.Models;
 using Microsoft.AspNetCore.JsonPatch;
 
+[Route("ClientCRUD")]
 public class ClientCRUDController : Controller
 {
     private readonly HttpClient _httpClient;
@@ -15,54 +16,98 @@ public class ClientCRUDController : Controller
         _httpClient = httpClientFactory.CreateClient("ClientAPIClient");
     }
 
-    public async Task<IActionResult> Create()
+    [HttpGet("Search")]
+    public IActionResult Search()
     {
         return View();
     }
 
-    [HttpPost]
+
+    [HttpGet("SearchClient")]
+    public async Task<IActionResult> SearchClient([FromQuery] int searchQuery)
+    {
+        var response = await _httpClient.GetAsync($"/api/client/{searchQuery}");
+        if (!response.IsSuccessStatusCode)
+        {
+            return NotFound(); // Retourner une réponse 404 si le client n'est pas trouvé
+        }
+
+        var content = await response.Content.ReadAsStringAsync();
+        var client = JsonConvert.DeserializeObject<ClientClass>(content);
+        return Json(client); // Retourner le client en format JSON
+    }
+    [HttpGet("Create")]
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+   
+
+    [HttpPost("Create")]
     public async Task<IActionResult> Create(ClientClass client)
     {
-        var response = await _httpClient.PostAsJsonAsync("/api/client", client);
-        response.EnsureSuccessStatusCode();
+        if (ModelState.IsValid)
+        {
+            var response = await _httpClient.PostAsJsonAsync("/api/client", client);
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("", "An error occurred while creating the client.");
+            }
+        }
+        return View(client);
+    } 
 
-        return RedirectToAction("Index");
-    }
-
-    public async Task<IActionResult> Delete()
+    [HttpGet("Delete")]
+    public IActionResult Delete()
     {
         return View();
     }
 
-    [HttpPost]
-    public async Task<IActionResult> Delete(int id)
+    [HttpDelete("DeleteClient")]
+    /*public async Task<IActionResult> DeleteClient(int ClientId)
     {
-        var response = await _httpClient.DeleteAsync($"/api/client/{id}");
-        response.EnsureSuccessStatusCode();
+        var response = await _httpClient.DeleteAsync($"/api/client/${ClientId}");
+        if (response.IsSuccessStatusCode)
+        {
+            return RedirectToAction("Index","Home");    [FromQuery] int searchQuery
+        }
+        else
+        {
+            ModelState.AddModelError("", "An error occurred while deleting the client.");
+            return View();
+        }
+    }*/
+    public async Task<IActionResult> DeleteClient([FromQuery] int deleteQuery)
+   {
+       var response = await _httpClient.DeleteAsync($"/api/client/{deleteQuery}");
+       if (response.IsSuccessStatusCode)
+       {
+           return RedirectToAction("Index","Home");   
+       }
+       else
+       {
+           ModelState.AddModelError("", "An error occurred while deleting the client. ");
+           return View();
+       }
+   }
 
-        return RedirectToAction("Index");
-    }
-
-    public async Task<IActionResult> Update()
+    [HttpGet("Update")]
+    public IActionResult Update()
     {
         return View();
     }
 
-    [HttpPost]
-    public async Task<IActionResult> Update(int id, [FromBody] JsonPatchDocument<ClientClass> patchDoc)
+    [HttpPost("Update/{id}")]
+    public async Task<IActionResult> UpdateClient(int id, [FromBody] JsonPatchDocument<ClientClass> patchDoc)
     {
         var response = await _httpClient.PatchAsync($"/api/client/{id}", JsonContent.Create(patchDoc));
         response.EnsureSuccessStatusCode();
 
         return RedirectToAction("Index");
-    }
-
-    public async Task<IActionResult> Search(string query)
-    {
-        var response = await _httpClient.GetAsync($"/api/client?search={query}");
-        var content = await response.Content.ReadAsStringAsync();
-        var clientList = JsonConvert.DeserializeObject<IEnumerable<ClientClass>>(content);
-
-        return View(clientList);
     }
 }

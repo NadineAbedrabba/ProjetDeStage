@@ -1,11 +1,11 @@
-﻿@model IEnumerable<Client.Interface.Models.ClientClass>
+﻿@model Client.Interface.Models.ClientClass
 @{
     ViewData["Title"] = "Search for a client.";
 }
 
-<h1 style="color:midnightblue";>@ViewData["Title"]</h1>
+<h1 style="color:midnightblue;">@ViewData["Title"]</h1>
 
-<form method="get" asp-action="Search">
+<form id="searchForm">
     <div class="form-group">
         <br /> <br />
         <label for="searchQuery">Please enter the client ID:</label>
@@ -13,11 +13,10 @@
     </div>
     <br />
     <br />
-    <button type="submit" class="btn btn-primary">Rechercher</button>
+    <button type="button" class="btn btn-primary" onclick="searchClient()">Search</button>
 </form>
 
-@if (Model != null && Model.Any())
-{
+<div id="clientInfo" style="display: none;">
     <table class="table mt-3">
         <thead>
             <tr>
@@ -28,27 +27,64 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var client in Model)
-            {
-                <tr>
-                    <td>@client.FirstName</td>
-                    <td>@client.LastName</td>
-                    <td>@client.Email</td>
-                    <td>
-                        <a class="btn btn-info btn-sm" asp-controller="ClientCRUD" asp-action="Update" asp-route-id="@client.Id">Modifier</a>
-                        <a class="btn btn-danger btn-sm" asp-controller="ClientCRUD" asp-action="Delete" asp-route-id="@client.Id">Supprimer</a>
-                    </td>
-                </tr>
-            }
+            <tr>
+                <td id="clientFirstName"></td>
+                <td id="clientLastName"></td>
+                <td id="clientEmail"></td>
+                <td>
+                    <a id="modifyButton" class="btn btn-info btn-sm" style="background-color: navy;border: 1px solid navy; color: white;">Update</a>
+                    <a id="deleteButton" class="btn btn-danger btn-sm" style="background-color: lightblue;border: 1px solid lightblue; color: white;">Delete</a>
+                </td>
+            </tr>
         </tbody>
     </table>
-}
-else
-{
-    <br />
-    <br />
-    <br />
+</div>
 
+@section Scripts {
+    <script type="text/javascript">
+        async function searchClient() {
+            /*const clientId = document.getElementById('searchQuery').value;
+            try {
+                const response = await fetch(`/ClientCRUD/Search?searchQuery=${clientId}`);
+                if (response.ok) {
+                    const client = await response.json();
+                    document.getElementById('clientFirstName').textContent = client.firstName;
+                    document.getElementById('clientLastName').textContent = client.lastName;
+                    document.getElementById('clientEmail').textContent = client.email;
+                    document.getElementById('modifyButton').setAttribute('href', `/ClientCRUD/Update?id=${client.id}`);
+                    document.getElementById('deleteButton').setAttribute('href', `/ClientCRUD/Delete?id=${client.id}`);
+                    document.getElementById('clientInfo').style.display = 'block';
+                } else {
+                    alert('Client not found.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while searching for the client.');
+            }*/
+                const clientId = document.getElementById('searchQuery').value;
+                try {
+                const response = await fetch(`/ClientCRUD/SearchClient?searchQuery=${clientId}`);
+                    if (response.ok) {
+                        const client = await response.json();
+                        if (client) {
+                            document.getElementById('clientFirstName').textContent = client.firstName;
+                            document.getElementById('clientLastName').textContent = client.lastName;
+                            document.getElementById('clientEmail').textContent = client.email;
+                            document.getElementById('modifyButton').setAttribute('href', `/ClientCRUD/Update?id=${client.id}`);
+                            document.getElementById('deleteButton').setAttribute('href', `/ClientCRUD/Delete?id=${client.id}`);
+                            document.getElementById('clientInfo').style.display = 'block';
+                        } else {
+                            alert('Client not found.');
+                        }
+                    } else {
+                        alert('Client not found.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred while searching for the client.');
+                }
+            
 
-    <p>Aucun client trouvé.</p>
+        }
+    </script>
 }

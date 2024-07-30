@@ -43,8 +43,11 @@ namespace Client.Interface.Controllers
             catch (HttpRequestException ex) { 
                 Console.WriteLine($"Request error http makhdemsh: {ex.Message}");
             return StatusCode(500, "Internal server error");
-            } }
-    
+            }
+        }
+   
+
+
 
         public IActionResult Privacy()
         {
